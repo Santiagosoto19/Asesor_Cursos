@@ -1,6 +1,6 @@
 # Agente de Asesoría Académica
 
-**Autores:** Santiago Soto y _______________________
+**Autores:** Santiago Soto y Benis Gómez
 
 ## Introducción
 
