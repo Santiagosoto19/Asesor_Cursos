@@ -1,0 +1,47 @@
+[
+  {
+    "id": "C01",
+    "nombre": "Python desde cero para análisis y automatización",
+    "descripcion": "Curso introductorio de Python 3 orientado a estudiantes y profesionales que necesitan leer, transformar y automatizar datos. Cubre variables, control de flujo, funciones, listas y diccionarios, manejo de archivos CSV/JSON, virtualenv y buenas prácticas. Al final el estudiante entrega un script que procesa un dataset realista y genera un reporte en consola.",
+    "modalidad": "virtual",
+    "duracion": "40 horas",
+    "costo": 180000,
+    "requisitos": "Manejo básico de computadora. No se exige experiencia previa en programación."
+  },
+  {
+    "id": "C02",
+    "nombre": "Git y GitHub para trabajo en equipo",
+    "descripcion": "Taller práctico de control de versiones: init, clone, add, commit, branch, merge, rebase básico, pull request y resolución de conflictos. Incluye flujo GitHub Flow, .gitignore, mensajes de commit claros y cómo colaborar en un repositorio compartido sin pisar el trabajo del compañero.",
+    "modalidad": "virtual",
+    "duracion": "16 horas",
+    "costo": 95000,
+    "requisitos": "Tener Git instalado y una cuenta en GitHub. Experiencia mínima de línea de comandos."
+  },
+  {
+    "id": "C03",
+    "nombre": "Fundamentos de redes TCP/IP",
+    "descripcion": "Introducción a redes de computadores: modelo OSI y TCP/IP, direccionamiento IPv4, máscaras, DHCP, DNS, HTTP/HTTPS, puertos y diagnóstico con ping, traceroute y ss. El estudiante aprende a interpretar un esquema de red pequeño y a identificar por qué un servicio no responde.",
+    "modalidad": "virtual",
+    "duracion": "32 horas",
+    "costo": 210000,
+    "requisitos": "Conocimientos generales de informática. No se requiere certificación previa de redes."
+  },
+  {
+    "id": "C04",
+    "nombre": "Bases de datos relacionales con SQL",
+    "descripcion": "Diseño e consulta de bases relacionales: tablas, claves primarias y foráneas, normalización básica, SELECT con JOIN, GROUP BY, índices y transacciones. Se trabaja con PostgreSQL en la nube o local. El proyecto final modela un catálogo académico (estudiantes, cursos, inscripciones) y responde consultas de negocio.",
+    "modalidad": "virtual",
+    "duracion": "36 horas",
+    "costo": 230000,
+    "requisitos": "Lógica de programación básica. Se recomienda haber visto Python o cualquier lenguaje estructurado."
+  },
+  {
+    "id": "C05",
+    "nombre": "Automatización de flujos con Python y APIs",
+    "descripcion": "Curso intermedio para encadenar tareas repetitivas: requests a APIs REST, lectura de JSON, programación de jobs, envío de correos y orquestación simple de pipelines (archivos → API → reporte). Incluye manejo de errores, variables de entorno y no hardcodear secretos. Ideal para quien ya programa y quiere ahorrar tiempo operativo.",
+    "modalidad": "virtual",
+    "duracion": "28 horas",
+    "costo": 250000,
+    "requisitos": "Python intermedio (funciones, módulos, JSON) y nociones de HTTP. Haber cursado C01 o equivalente."
+  }
+]

@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Asesor académico de cursos",
+    "output": "asesor-arquitectura.html",
+    "quality_profile": "showcase",
+    "viewBox": [1100, 620],
+    "views": [
+      {
+        "id": "chat-path",
+        "label": "Chat con Groq",
+        "focus": ["usuario", "consola", "agente", "groq"],
+        "note": "El estudiante pregunta en terminal; main.py llama a AgenteAsesor y Groq responde con historial."
+      },
+      {
+        "id": "catalog-path",
+        "label": "Catálogo remoto",
+        "focus": ["consola", "catalogo", "github", "agente"],
+        "note": "Python descarga cursos.json y lo inyecta en el system prompt; el modelo no inventa el catálogo."
+      },
+      {
+        "id": "enroll-path",
+        "label": "Envío de ficha",
+        "focus": ["consola", "email", "gmail", "secrets"],
+        "note": "Solo si hay JSON de acción válido, lookup local del curso y SMTP a Gmail."
+      }
+    ]
+  },
+  "components": [
+    { "id": "usuario", "type": "external", "label": "Estudiante", "sublabel": "Terminal", "pos": [36, 190], "size": [140, 64] },
+    { "id": "secrets", "type": "security", "label": ".env", "sublabel": "Claves locales", "tag": "GROQ + Gmail", "pos": [248, 36], "size": [150, 64] },
+    { "id": "consola", "type": "frontend", "label": "Consola CLI", "sublabel": "src/main.py", "brand": "python", "pos": [248, 190], "size": [150, 64] },
+    { "id": "agente", "type": "backend", "label": "AgenteAsesor", "sublabel": "src/agente.py", "pos": [478, 190], "size": [150, 64] },
+    { "id": "groq", "type": "cloud", "label": "Groq", "sublabel": "chat.completions", "tag": "gpt-oss-20b", "pos": [708, 190], "size": [150, 64] },
+    { "id": "email", "type": "backend", "label": "EmailService", "sublabel": "src/email_service.py", "pos": [248, 360], "size": [150, 64] },
+    { "id": "catalogo", "type": "backend", "label": "CatalogoCursos", "sublabel": "requests GET", "pos": [478, 360], "size": [150, 64] },
+    { "id": "github", "type": "external", "label": "cursos.json", "sublabel": "GitHub raw", "brand": "github", "pos": [708, 360], "size": [150, 64] },
+    { "id": "gmail", "type": "external", "label": "Gmail SMTP", "sublabel": "smtp.gmail.com:587", "pos": [248, 510], "size": [150, 64] }
+  ],
+  "boundaries": [
+    { "kind": "region", "label": "Proceso Python local", "wraps": ["consola", "agente", "catalogo", "email"] }
+  ],
+  "connections": [
+    { "id": "chat-in", "from": "usuario", "to": "consola", "label": "preguntas", "variant": "emphasis" },
+    { "id": "load-env", "from": "secrets", "to": "consola", "label": "dotenv", "variant": "security", "labelDy": 52 },
+    { "id": "ask-agent", "from": "consola", "to": "agente", "label": "responder()" },
+    { "id": "call-groq", "from": "agente", "to": "groq", "label": "HTTPS API", "variant": "emphasis" },
+    { "id": "load-catalog", "from": "consola", "to": "catalogo", "label": "cargar()" },
+    { "id": "fetch-json", "from": "catalogo", "to": "github", "label": "HTTPS GET" },
+    { "id": "inject-prompt", "from": "catalogo", "to": "agente", "label": "system prompt" },
+    { "id": "send-ficha", "from": "consola", "to": "email", "label": "JSON enviar_correo", "variant": "dashed", "labelDy": 24 },
+    { "id": "smtp-out", "from": "email", "to": "gmail", "label": "STARTTLS :587", "labelDy": 24 }
+  ],
+  "cards": [
+    { "dot": "cyan", "title": "Chat", "items": ["Groq con historial en memoria", "Sin LangChain ni LlamaIndex"] },
+    { "dot": "emerald", "title": "Catálogo", "items": ["cursos.json se descarga en runtime", "El lookup de curso es local, no del modelo"] },
+    { "dot": "rose", "title": "Inscripción", "items": ["JSON {accion, email, curso_id}", "smtplib envía la ficha por Gmail"] }
+  ]
+}
