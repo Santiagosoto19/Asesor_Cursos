@@ -49,16 +49,3 @@ python src/main.py
 
 - **Groq:** crea cuenta en [https://console.groq.com](https://console.groq.com), genera una API key y pégala en `GROQ_API_KEY`. El modelo por defecto es `openai/gpt-oss-20b`.
 - **Gmail:** en la cuenta de Google, activa 2FA y crea una [contraseña de aplicación](https://myaccount.google.com/apppasswords). Úsala en `EMAIL_APP_PASSWORD` (no la contraseña normal). `EMAIL_REMITENTE` es el correo Gmail que envía.
-
-## Checklist de demo / sustentación
-
-- [ ] Preguntar por un curso (por ejemplo Python o Git) y verificar que use datos del catálogo.
-- [ ] Seguir la conversación y comprobar **memoria** (el agente recuerda el curso o el perfil).
-- [ ] Pedir inscripción / “quiero inscribirme”.
-- [ ] Dar un correo real.
-- [ ] Confirmar que llega el mail con la ficha completa (id, nombre, descripción, modalidad, duración, costo, requisitos).
-- [ ] Escribir `salir` o `exit` para terminar.
-
-## Advertencia sobre `.env`
-
-El ZIP que se sube a Moodle **sí incluye** `.env` (con las claves de la demo). Un repositorio **público** no debe incluir `.env` ni secretos; este proyecto ya lo ignora en `.gitignore`.
