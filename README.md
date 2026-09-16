@@ -12,7 +12,7 @@ https://raw.githubusercontent.com/Santiagosoto19/Cursos-Proyecto-electiva/main/c
 
 ## Decisión de arquitectura
 
-Se usa **Groq** (SDK oficial `groq`) y no LangChain ni LlamaIndex. Groq ofrece un plan gratuito, latencia baja y un cliente mínimo (`chat.completions.create`) suficiente para un chat con historial. El catálogo se inyecta en el system prompt; el envío de correo es código propio con `smtplib`. Menos capas, más fácil de explicar en la sustentación.
+Se usa **Groq** (SDK oficial `groq`) y no LangChain ni LlamaIndex. Groq ofrece un plan gratuito, latencia baja y un cliente mínimo (`chat.completions.create`) suficiente para un chat con historial. El catálogo se inyecta en el system prompt; el envío de correo es código propio con `smtplib`.
 
 ## Contrato JSON de acción
 
